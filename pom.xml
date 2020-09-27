@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>SecureChat</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+<!--    <properties>-->
+<!--        <netty.tcnative.version>2.0.7.Final</netty.tcnative.version>-->
+<!--    </properties>-->
+    <properties>
+        <!-- Configure the os-maven-plugin extension to expand the classifier on -->
+        <!-- Fedora-"like" systems. -->
+        <os.detection.classifierWithLikes>fedora</os.detection.classifierWithLikes>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-handler</artifactId>
+            <version>4.1.26.Final-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>/home/vagrant/.m2/repository/io/netty/netty-handler/4.1.26.Final-SNAPSHOT/netty-handler-4.1.26.Final-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-transport</artifactId>
+            <version>4.1.26.Final-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>/home/vagrant/.m2/repository/io/netty/netty-transport/4.1.26.Final-SNAPSHOT/netty-transport-4.1.26.Final-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-example</artifactId>
+            <version>4.1.26.Final-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>/home/vagrant/.m2/repository/io/netty/netty-example/4.1.26.Final-SNAPSHOT/netty-example-4.1.26.Final-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-common</artifactId>
+            <version>4.1.26.Final-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>/home/vagrant/.m2/repository/io/netty/netty-common/4.1.26.Final-SNAPSHOT/netty-common-4.1.26.Final-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-buffer</artifactId>
+            <version>4.1.26.Final-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>/home/vagrant/.m2/repository/io/netty/netty-buffer/4.1.26.Final-SNAPSHOT/netty-buffer-4.1.26.Final-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-jdk15on</artifactId>
+            <version>1.54</version>
+            <scope>system</scope>
+            <systemPath>/home/vagrant/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.54/bcprov-jdk15on-1.54.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.54</version>
+            <scope>system</scope>
+            <systemPath>/home/vagrant/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.54/bcprov-jdk15on-1.54.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-codec</artifactId>
+            <version>4.1.26.Final-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>/home/vagrant/.m2/repository/io/netty/netty-codec/4.1.26.Final-SNAPSHOT/netty-codec-4.1.26.Final-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>io.netty</groupId>-->
+<!--            <artifactId>netty-tcnative-boringssl-static</artifactId>-->
+<!--            <version>2.0.7.Final</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>/home/vagrant/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.7.Final/netty-tcnative-boringssl-static-2.0.7.Final.jar</systemPath>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-tcnative-openssl-static</artifactId>
+            <version>2.0.9.Final-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>/home/vagrant/.m2/repository/io/netty/netty-tcnative-openssl-static/2.0.9.Final-SNAPSHOT/netty-tcnative-openssl-static-2.0.9.Final-SNAPSHOT-linux-x86_64.jar</systemPath>
+        </dependency>
+
+
+<!--        <dependency>-->
+<!--            <groupId>org.bouncycastle</groupId>-->
+<!--            <artifactId>bcpkix-jdk15on</artifactId>-->
+<!--            <version>1.54</version>-->
+<!--            <scope>compile</scope>-->
+<!--            <optional>true</optional>-->
+<!--        </dependency>-->
+
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.5.5</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>io.netty.example.securechat.SecureChatClient</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
